@@ -1,0 +1,11 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.checkbox-main-div {
+	margin-top: 32px;
+	margin-bottom: 32px;
+	display: flex;
+	flex-direction: row;
+	gap: 16px;
+}

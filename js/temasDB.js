@@ -1,3 +1,5 @@
+const league = ["Bundesliga", "2 Bundesliga", "3 Bundesliga", "Premier League", "ligue1", "laliga", "serie a"];
+
 const bundesligaTeams = [
 	"FC Bayern München",
 	"Borussia Dortmund",

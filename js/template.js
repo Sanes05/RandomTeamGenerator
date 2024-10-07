@@ -6,3 +6,9 @@ function checkboxTemplate(element) {
             </label>
     </div>`;
 }
+
+function errorTemplate(message) {
+	return `<p class="error-message">
+        ${message}
+    </p>`;
+}

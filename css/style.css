@@ -20,3 +20,8 @@ body {
 	flex-direction: row;
 	gap: 16px;
 }
+.content-div {
+	display: flex;
+	flex-direction: row;
+	gap: 16px;
+}

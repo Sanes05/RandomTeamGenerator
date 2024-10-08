@@ -12,6 +12,7 @@ function createCheckboxTemplate() {
 
 function randomTeam() {
 	let content = document.getElementById("content");
+	let content1 = document.getElementById("content1");
 	let error = document.getElementById("errormessage");
 	let leagues = [
 		{checkbox: "Bundesliga", teams: bundesligaTeams},
@@ -24,12 +25,14 @@ function randomTeam() {
 	];
 	if (validateCheckbox() === false) {
 		content.innerHTML = "";
+		content1.innerHTML = "";
 	} else {
 		error.innerHTML = "";
 		for (let league of leagues) {
 			let checkbox = document.getElementById(league.checkbox);
 			if (checkbox.checked) {
 				content.innerHTML = league.teams[Math.floor(Math.random() * league.teams.length)];
+				content1.innerHTML = league.teams[Math.floor(Math.random() * league.teams.length)];
 				return;
 			}
 		}

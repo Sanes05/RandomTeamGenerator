@@ -23,5 +23,10 @@ body {
 .content-div {
 	display: flex;
 	flex-direction: row;
-	gap: 16px;
+	gap: 64px;
+}
+.content {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
 }

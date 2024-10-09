@@ -11,8 +11,7 @@ function createCheckboxTemplate() {
 }
 
 function randomTeam() {
-	let content = document.getElementById("content");
-	let content1 = document.getElementById("content1");
+	let content = [document.getElementById("content"), document.getElementById("content1")];
 	let error = document.getElementById("errormessage");
 	let leagues = [
 		{checkbox: "Bundesliga", teams: bundesligaTeams},
@@ -24,15 +23,16 @@ function randomTeam() {
 		{checkbox: "serie a", teams: serieATeams},
 	];
 	if (validateCheckbox() === false) {
-		content.innerHTML = "";
-		content1.innerHTML = "";
+		content[0].innerHTML = "";
+		content[1].innerHTML = "";
 	} else {
 		error.innerHTML = "";
 		for (let league of leagues) {
 			let checkbox = document.getElementById(league.checkbox);
 			if (checkbox.checked) {
-				content.innerHTML = league.teams[Math.floor(Math.random() * league.teams.length)];
-				content1.innerHTML = league.teams[Math.floor(Math.random() * league.teams.length)];
+				let teams = [league.teams[Math.floor(Math.random() * league.teams.length)], league.teams[Math.floor(Math.random() * league.teams.length)]];
+				content[0].innerHTML = mainTemplate(teams[0], "Kevin :");
+				content[1].innerHTML = mainTemplate(teams[1], "Marco :");
 				return;
 			}
 		}

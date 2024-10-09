@@ -7,6 +7,16 @@ function checkboxTemplate(element) {
     </div>`;
 }
 
+function mainTemplate(teams, name) {
+	return `
+    <p class="main-p">
+        ${name}
+    </p>
+	<p class="main-p">
+		${teams}
+	</p>`;
+}
+
 function errorTemplate(message) {
 	return `<p class="error-message">
         ${message}

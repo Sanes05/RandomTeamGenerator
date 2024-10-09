@@ -31,9 +31,13 @@ function randomTeam() {
 			let checkbox = document.getElementById(league.checkbox);
 			if (checkbox.checked) {
 				let teams = [league.teams[Math.floor(Math.random() * league.teams.length)], league.teams[Math.floor(Math.random() * league.teams.length)]];
-				content[0].innerHTML = mainTemplate(teams[0], "Kevin :");
-				content[1].innerHTML = mainTemplate(teams[1], "Marco :");
-				return;
+				if (teams[0] === teams[1]) {
+					teams[1] = league.teams[Math.floor(Math.random() * league.teams.length)];
+				} else {
+					content[0].innerHTML = mainTemplate(teams[0], "Kevin :");
+					content[1].innerHTML = mainTemplate(teams[1], "Marco :");
+					return;
+				}
 			}
 		}
 	}

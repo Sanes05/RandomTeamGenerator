@@ -12,3 +12,7 @@ function getNamesFromLocalStorage() {
 		overlay();
 	}
 }
+
+function removeItemFromLocalStorage() {
+	localStorage.removeItem("name");
+}

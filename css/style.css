@@ -21,6 +21,7 @@ body {
 	gap: 16px;
 }
 .content-div {
+	margin-top: 32px;
 	display: flex;
 	flex-direction: row;
 	gap: 64px;
@@ -29,4 +30,17 @@ body {
 	display: flex;
 	flex-direction: row;
 	gap: 8px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+	h1 {
+		font-size: 24px;
+	}
+	.checkbox-main-div {
+		flex-direction: column;
+	}
+	.content-div {
+		flex-direction: column;
+	}
 }

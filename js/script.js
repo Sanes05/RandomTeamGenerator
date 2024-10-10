@@ -1,7 +1,7 @@
 function main() {
 	createCheckboxTemplate();
-	overlay();
 	getNamesFromLocalStorage();
+	overlay();
 }
 
 const names = [];

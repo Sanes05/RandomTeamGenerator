@@ -46,3 +46,25 @@
 	display: flex;
 	gap: 16px;
 }
+
+/* Responsive */
+@media (max-width: 800px) {
+	.overlay-content {
+		width: 500px;
+		height: 700px;
+	}
+}
+
+@media (max-width: 600px) {
+	.overlay-content {
+		width: 400px;
+		height: 600px;
+	}
+}
+
+@media (max-width: 400px) {
+	.overlay-content {
+		width: 300px;
+		height: 500px;
+	}
+}

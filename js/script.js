@@ -14,14 +14,15 @@ function getName() {
 		error.innerHTML = "";
 		names.push(nameInputref[0]);
 		names.push(nameInputref[1]);
+		setNametoLoacalStorage(names);
 		overlay();
 	}
 }
 
 function noName() {
-	overlay();
 	names.push("Spieler 1");
 	names.push("Spieler 2");
+	overlay();
 }
 
 function createCheckboxTemplate() {

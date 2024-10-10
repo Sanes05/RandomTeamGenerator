@@ -51,6 +51,10 @@
 	margin-top: 32px;
 }
 
+.overlay-input:focus {
+	outline: none;
+}
+
 /* Responsive */
 @media (max-width: 800px) {
 	.overlay-content {

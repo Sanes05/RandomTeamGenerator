@@ -1,5 +1,27 @@
 function main() {
 	createCheckboxTemplate();
+	overlay();
+}
+
+const names = [];
+
+function getName() {
+	let nameInputref = [document.getElementById("name").value, document.getElementById("name1").value];
+	let error = document.getElementById("overlay-error");
+	if ((nameInputref[0] === "", nameInputref[1] === "")) {
+		error.innerHTML = errorTemplate("Bitte gebe zwei Namen ein");
+	} else {
+		error.innerHTML = "";
+		names.push(nameInputref[0]);
+		names.push(nameInputref[1]);
+		overlay();
+	}
+}
+
+function noName() {
+	overlay();
+	names.push("Spieler 1");
+	names.push("Spieler 2");
 }
 
 function createCheckboxTemplate() {
@@ -34,8 +56,8 @@ function randomTeam() {
 				if (teams[0] === teams[1]) {
 					teams[1] = league.teams[Math.floor(Math.random() * league.teams.length)];
 				} else {
-					content[0].innerHTML = mainTemplate(teams[0], "Kevin :");
-					content[1].innerHTML = mainTemplate(teams[1], "Marco :");
+					content[0].innerHTML = mainTemplate(teams[0], names[0] + " :");
+					content[1].innerHTML = mainTemplate(teams[1], names[1] + " :");
 					return;
 				}
 			}

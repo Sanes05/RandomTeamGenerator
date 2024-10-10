@@ -1,0 +1,15 @@
+.checkbox-div {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	margin-left: 16px;
+}
+
+.checkbox {
+	width: 20px;
+	height: 20px;
+}
+
+.checkbox:hover {
+	cursor: pointer;
+}

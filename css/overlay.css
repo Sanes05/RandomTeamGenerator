@@ -47,6 +47,10 @@
 	gap: 16px;
 }
 
+.overlay-headline {
+	margin-top: 32px;
+}
+
 /* Responsive */
 @media (max-width: 800px) {
 	.overlay-content {

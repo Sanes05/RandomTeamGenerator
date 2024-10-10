@@ -1,6 +1,7 @@
 function main() {
 	createCheckboxTemplate();
 	getNamesFromLocalStorage();
+	generateOverlay();
 	overlay();
 }
 
@@ -90,4 +91,9 @@ function validateCheckbox() {
 		error.innerHTML = "";
 		return true;
 	}
+}
+
+function generateOverlay() {
+	let overlayRef = document.getElementById("overlay");
+	overlayRef.innerHTML = overlayTemplate();
 }

@@ -32,6 +32,22 @@ body {
 	gap: 8px;
 }
 
+button {
+	background-color: #4caf50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	border-radius: 16px;
+	text-align: center;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
 /* Responsive */
 @media (max-width: 800px) {
 	h1 {

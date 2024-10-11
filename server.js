@@ -25,6 +25,65 @@ const db = new sqlite3.Database("./rooms.db", (err) => {
 
 app.use(express.static("public"));
 
+app.get("/create-room", (req, res) => {
+	const roomId = uuidv4();
+	const username = req.query.username || "Anonymer Nutzer";
+
+	const sql = `INSERT INTO rooms (room_id, user_name) VALUES (?, ?)`;
+	db.run(sql, [roomId, username], (err) => {
+		if (err) {
+			console.error(err.message);
+			res.status(500).json({error: "Fehler beim Erstellen des Raums"});
+		} else {
+			res.json({roomId});
+		}
+	});
+});
+
+io.on("connection", (socket) => {
+	console.log("Ein Benutzer hat sich verbunden.");
+
+	socket.on("join-room", (roomId, username) => {
+		const sql = `SELECT room_id FROM rooms WHERE room_id = ?`;
+		db.get(sql, [roomId], (err, row) => {
+			if (err) {
+				console.error(err.message);
+				socket.emit("error", "Fehler beim Beitritt zum Raum.");
+			} else if (row) {
+				socket.join(roomId);
+				const insertSql = `INSERT INTO rooms (room_id, user_name) VALUES (?, ?)`;
+				db.run(insertSql, [roomId, username], (err) => {
+					if (err) {
+						console.error(err.message);
+					} else {
+						io.to(roomId).emit("user-joined", username);
+						console.log(`${username} ist Raum ${roomId} beigetreten.`);
+					}
+				});
+			} else {
+				socket.emit("error", "Raum nicht gefunden.");
+			}
+		});
+	});
+
+	socket.on("leave-room", (roomId, username) => {
+		socket.leave(roomId);
+		const sql = `DELETE FROM rooms WHERE room_id = ? AND user_name = ?`;
+		db.run(sql, [roomId, username], (err) => {
+			if (err) {
+				console.error(err.message);
+			} else {
+				io.to(roomId).emit("user-left", username);
+				console.log(`${username} hat Raum ${roomId} verlassen.`);
+			}
+		});
+	});
+
+	socket.on("disconnect", () => {
+		console.log("Ein Benutzer hat die Verbindung getrennt.");
+	});
+});
+
 server.listen(PORT, () => {
 	console.log(`Server läuf auf http://localhost:${PORT}`);
 });

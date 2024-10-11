@@ -16,8 +16,6 @@ const db = new sqlite3.Database("./rooms.db", (err) => {
 		console.error(err.message);
 	} else {
 		console.log("Verbunden mit der SQLite-Datenbank.");
-
-		// Erstelle die Tabelle für die Räume, wenn sie noch nicht existiert
 		db.run(`CREATE TABLE IF NOT EXISTS rooms (
     room_id TEXT PRIMARY KEY,
     user_name TEXT

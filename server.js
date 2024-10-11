@@ -6,10 +6,10 @@ const {v4: uuidv4} = require("uuid");
 const sqlite3 = require("sqlite3").verbose();
 
 const PORT = process.env.PORT || 3001;
-
 const app = express();
-
 const server = http.createServer(app);
+
+const io = socketIO(server);
 
 const db = new sqlite3.Database("./rooms.db", (err) => {
 	if (err) {

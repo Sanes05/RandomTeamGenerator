@@ -37,7 +37,7 @@ function overlayTemplate() {
 					<label for="name1">Zweiter Name</label>
 				</div>
 				<div class="overlay-btn-div">
-					<button class="overlay-btn" onclick="getName()">Name Hinzufügen</button>
+					<button class="overlay-btn" onclick="updateName()">Name Hinzufügen</button>
 					<button class="overlay-btn" onclick="noName()">Ohne Name drehen</button>
 				</div>
 				<div class="overlay-error" id="overlay-error"></div>

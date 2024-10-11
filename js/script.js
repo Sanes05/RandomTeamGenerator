@@ -5,7 +5,8 @@ function main() {
 	overlay();
 }
 
-const names = [];
+let names = [];
+console.log(names);
 
 function getName() {
 	let nameInputref = [document.getElementById("name").value, document.getElementById("name1").value];
@@ -25,6 +26,12 @@ function noName() {
 	names.push("Spieler 1");
 	names.push("Spieler 2");
 	overlay();
+}
+
+function updateName() {
+	names = [];
+	removeItemFromLocalStorage();
+	getName();
 }
 
 function createCheckboxTemplate() {

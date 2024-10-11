@@ -23,6 +23,8 @@ function getName() {
 }
 
 function noName() {
+	names = [];
+	removeItemFromLocalStorage();
 	names.push("Spieler 1");
 	names.push("Spieler 2");
 	overlay();

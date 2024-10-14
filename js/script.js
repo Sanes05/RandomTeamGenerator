@@ -6,7 +6,6 @@ function main() {
 }
 
 let names = [];
-console.log(names);
 
 function getName() {
 	let nameInputref = [document.getElementById("name").value, document.getElementById("name1").value];
